@@ -1,27 +1,31 @@
 import React from 'react';
 import {Text,View,StyleSheet, TextInput} from 'react-native';
-import UserInput from '../components/auth/UserInput';
 
 
 
 
-const Signup = () => {
+const UserInput = ({text}) => {
 
 
 
 
     return(
-        <>
+        
 
-        <View style={{flex:1, justifyContent:'center'}}>
+      <View style={{marginHorizontal:24}}>
+          <Text style={styles.paragraph}>{text}</Text>
 
-            <UserInput text="Sign up" />
 
-           
+          <TextInput style={styles.TextInputs}/>
 
-       </View>
+      </View>
 
-</>
+
+    
+
+   
+
+  
 
     )
 
@@ -29,9 +33,6 @@ const Signup = () => {
 
 const styles = StyleSheet.create({
 
-    container:{
-
-    },
 
     paragraph:{
         textAlign:'center',
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     },
 
     TextInputs:{
-        borderBottomWidth:0.5,
+        borderBottomWidth:0.9,
         height:48,
         borderBottomColor:'#8E93a1',
         marginBottom:30
@@ -61,4 +62,4 @@ const styles = StyleSheet.create({
 
 
 
-export default Signup
+export default UserInput
