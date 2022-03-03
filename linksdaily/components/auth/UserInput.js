@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
 
 
     paragraph:{
-        textAlign:'center',
-        fontSize:29,
+       
+        fontSize:18,
         color:'black'
         
     },

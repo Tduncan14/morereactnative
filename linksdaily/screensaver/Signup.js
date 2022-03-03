@@ -13,9 +13,17 @@ const Signup = () => {
     return(
         <>
 
+
+
         <View style={{flex:1, justifyContent:'center'}}>
 
+            <Text style={styles.paragraph}>
+                Sign Up
+            </Text>
+
             <UserInput text="Sign up" />
+            <UserInput text="Email" />
+            <UserInput text="Password" />
 
            
 
@@ -36,7 +44,8 @@ const styles = StyleSheet.create({
     paragraph:{
         textAlign:'center',
         fontSize:29,
-        color:'black'
+        color:'black',
+        marginBottom:39
         
     },
 
