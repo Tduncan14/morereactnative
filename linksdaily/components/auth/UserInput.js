@@ -4,7 +4,10 @@ import {Text,View,StyleSheet, TextInput} from 'react-native';
 
 
 
-const UserInput = ({text}) => {
+const UserInput = ({text,value,setValue,
+    autoCapitalize ="none",
+    keyboardType ="default",
+    secureTextEntry =false}) => {
 
 
 
@@ -16,12 +19,15 @@ const UserInput = ({text}) => {
           <Text style={styles.paragraph}>{text}</Text>
 
 
-          <TextInput style={styles.TextInputs}/>
+          <TextInput autoCapitalize={false} style={styles.TextInputs} value={value}
+          onChangeText={(text)=> setValue(text)}
+          
+          />
 
       </View>
 
 
-    
+
 
    
 
