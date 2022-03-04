@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
-import {Text,View,StyleSheet, TextInput} from 'react-native';
+import {Text,View,StyleSheet,Button, TouchableOpacity} from 'react-native';
 import UserInput from '../components/auth/UserInput';
-
+import SubmitButton from '../components/auth/SubmitButton';
 
 
 
@@ -35,6 +35,7 @@ const Signup = () => {
 
 
 
+               <SubmitButton  text={"submit"}/>
             <Text>{JSON.stringify({name,email,password},null,4)}</Text>
 
            
@@ -66,6 +67,12 @@ const styles = StyleSheet.create({
         height:48,
         borderBottomColor:'#8E93a1',
         marginBottom:30
+    },
+
+    Text:{
+        textAlign:'center',
+        fontWeight:"400",
+        fontSize:24,
     }
 })
 
