@@ -12,7 +12,7 @@ const CircleLogo = () =>{
     return (
 
         <View>
-           <Text >Logo </Text>
+           <Image source={require('../../assets/logo.png')} />
         </View>
     )
 
