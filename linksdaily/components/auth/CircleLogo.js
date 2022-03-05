@@ -11,7 +11,7 @@ const CircleLogo = () =>{
 
     return (
 
-        <View>
+        <View style={styles.container}>
            <Image style={styles.image} source={require('../../assets/logo.png')} />
         </View>
     )
@@ -25,14 +25,19 @@ const CircleLogo = () =>{
 
 const styles = StyleSheet.create({
 
+    container:{
+        justifyContent:'center',
+        alignItems:'center',
+
+    },
+
     image:{
         width:150,
         height:140,
         textAlign:'center',
         justifyContent:'center',
         alignItems:'center',
-        marginVertical:50,
-        marginHorizontal:120,
+        marginVertical:30,
         marginBottom:10
     }
 
