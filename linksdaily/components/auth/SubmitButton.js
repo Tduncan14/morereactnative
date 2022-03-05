@@ -3,7 +3,7 @@ import { TouchableOpacity ,StyleSheet ,Text} from 'react-native';
 
 
 
-const SubmitButton = ({text}) => {
+const SubmitButton = ({text,handleSubmit,loading}) => {
 
 
 
@@ -12,6 +12,7 @@ const SubmitButton = ({text}) => {
     return (
 
         <TouchableOpacity 
+        onPress={handleSubmit}
         style={{backgroundColor:'#ff9900',
         height:50,
         justifyContent:'center',
@@ -20,8 +21,8 @@ const SubmitButton = ({text}) => {
         borderRadius:24}}
       
       >
-          <Text style={styles.Text}>{text}</Text>
-      </TouchableOpacity>
+          <Text style={styles.Text}>{loading ? text: "please wait..."}</Text>
+      </TouchableOpacity >
 
      
 

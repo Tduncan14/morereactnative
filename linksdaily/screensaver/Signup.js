@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {Text,View,StyleSheet,Button, TouchableOpacity} from 'react-native';
 import UserInput from '../components/auth/UserInput';
 import SubmitButton from '../components/auth/SubmitButton';
-
+import axios from 'axios'
 
 
 const Signup = () => {
@@ -14,6 +14,35 @@ const Signup = () => {
 
 
 
+      const handleSubmit = async () => {
+
+        setLoading(true)
+
+
+        if(!name || !email || !password ){
+
+            alert("All fields are required");
+            setLoading(false)
+            return
+
+        }
+
+ 
+        try{
+            
+            // const {data} = await axios.post('http://localhost:8000/api/signup',{name,email,password})
+            // console.log('the data has been submitted successfully sign in',data)
+
+            console.log(name,email,password,"data being passed to the backend")
+            alert('Sign up successfull')
+
+
+        }
+
+        catch(err){
+            console.log(err);
+        }
+      }
 
 
 
@@ -35,7 +64,7 @@ const Signup = () => {
 
 
 
-               <SubmitButton  text={"submit"}/>
+               <SubmitButton handleSubmit={handleSubmit} text={"submit"} loading={loading}/>
             <Text>{JSON.stringify({name,email,password},null,4)}</Text>
 
            
