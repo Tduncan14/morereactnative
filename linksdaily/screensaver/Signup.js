@@ -2,7 +2,9 @@ import React,{useState} from 'react';
 import {Text,View,StyleSheet,Button, TouchableOpacity} from 'react-native';
 import UserInput from '../components/auth/UserInput';
 import SubmitButton from '../components/auth/SubmitButton';
+import Logo from '../components/auth/CircleLogo';
 import axios from 'axios'
+import CircleLogo from '../components/auth/CircleLogo';
 
 
 const Signup = () => {
@@ -10,7 +12,7 @@ const Signup = () => {
         const [name,setName] = useState('');
         const [email,setEmail] =useState('');
         const [password,setPassword] = useState('');
-        const [loading,setLoading] = useState(false);
+        const [loading,setLoading] = useState(true);
 
 
 
@@ -35,12 +37,14 @@ const Signup = () => {
 
             console.log(name,email,password,"data being passed to the backend")
             alert('Sign up successfull')
+            setLoading(false)
 
 
         }
 
         catch(err){
             console.log(err);
+            setLoading(false)
         }
       }
 
@@ -49,9 +53,11 @@ const Signup = () => {
     return(
         <>
 
-
-
+   
+      
         <View style={{flex:1, justifyContent:'center'}}>
+
+             <CircleLogo />
 
             <Text style={styles.paragraph}>
                 Sign Up
@@ -80,6 +86,7 @@ const Signup = () => {
 const styles = StyleSheet.create({
 
     container:{
+        color:'black'
 
     },
 

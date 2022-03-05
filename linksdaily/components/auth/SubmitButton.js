@@ -21,7 +21,7 @@ const SubmitButton = ({text,handleSubmit,loading}) => {
         borderRadius:24}}
       
       >
-          <Text style={styles.Text}>{loading ? text: "please wait..."}</Text>
+          <Text style={styles.Text}>{loading ? "please wait ...": text}</Text>
       </TouchableOpacity >
 
      
