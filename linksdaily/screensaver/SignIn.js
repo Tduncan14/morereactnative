@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import {Text,View,StyleSheet,Button} from 'react-native';
+import {Text,View,StyleSheet,Button,ScrollView} from 'react-native';
 import CircleLogo from '../components/auth/CircleLogo';
 import UserInput from '../components/auth/UserInput';
-
+import SubmitButton from '../components/auth/SubmitButton';
+import axios from 'axios';
 
 
 
@@ -55,19 +56,71 @@ const Signin = () => {
 
 
     return(
-        <View>
-             <Text>Sign In</Text>
+        <ScrollView>
+        <View style={styles.forView}>
+            <CircleLogo />
+
+             <Text style={styles.Text}>Sign In</Text>
 
 
-             <UserInput text="email" value={email}  autoComplete="email" keyboardType='email-address' setValue={setEmail}  enableAndroid/>
-             <UserInput text="password" value={password}  setValue={setPassword} secureTextEntry={true} />
+             <UserInput style={styles.textInputs} text="email" value={email}  autoComplete="email" keyboardType='email-address' setValue={setEmail}  enableAndroid/>
+             <UserInput style={styles.textInputs} text="password" value={password}  setValue={setPassword} secureTextEntry={true} />
+
+
+             <SubmitButton text="sign in" />
+
+             <Text style={styles.signUp}> Don't have account? <Text style={styles.colorText}>Sign Up</Text></Text>
         </View>
+
+        </ScrollView>
     )
 }
 
 
  const styles = StyleSheet.create({
 
+      container:{
+          alignItems:'center',
+          justifyContent:'center',
+      },
+
+      forView:{
+          marginVertical:100,
+          justifyContent:'center'
+      },
+
+      paragraph:{
+          textAlign:'center',
+          fontSize:29,
+          color:'black',
+          marginBottom:39
+      },
+      textInputs:{
+          borderBottomWidth:0.5,
+          height:48,
+          borderBottomColor:'#8E93a1',
+          marginBottom:30
+      }
+      ,
+
+      Text:{
+          textAlign:'center',
+          fontWeight:"400",
+          fontSize:24
+      },
+
+
+      signUp:{
+          fontSize:14,
+          textAlign:'center',
+          marginTop:17
+
+      },
+
+
+      colorText:{
+          color:'green'
+      }
 
 
 

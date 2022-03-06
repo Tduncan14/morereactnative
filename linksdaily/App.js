@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {WebView} from 'react-native-webview';
 import Signup from './screensaver/Signup';
+import Signin from './screensaver/SignIn';
 
 
 
@@ -11,7 +12,10 @@ export default function App() {
 
   return (
   
-      <Signup />
+    <>
+      {/* <Signup /> */}
+      <Signin />
+      </>
 
   );
 }
