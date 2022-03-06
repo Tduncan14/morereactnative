@@ -1,10 +1,11 @@
 import React,{useState} from 'react';
-import {Text,View,StyleSheet,Button, TouchableOpacity,ScrollView} from 'react-native';
+import {Text,View,StyleSheet,Button, TouchableOpacity,ScrollView, KeyboardAvoidingView,} from 'react-native';
 import UserInput from '../components/auth/UserInput';
 import SubmitButton from '../components/auth/SubmitButton';
 import Logo from '../components/auth/CircleLogo';
 import axios from 'axios'
 import CircleLogo from '../components/auth/CircleLogo';
+// import { KeyboardAwareScrollView ,enableAutomaticScroll} from 'react-native-keyboard-aware-scroll-view'
 
 
 const Signup = () => {
@@ -51,14 +52,11 @@ const Signup = () => {
 
 
     return(
-        <>
-
-   
+    
+      <KeyboardAvoidingView behavior='height' enableOnAndroid   style= {styles.container}>
       
-        <ScrollView contentContainerStyle = {styles.container}>
 
-        
-        <View style={styles.forView}>
+          <View style={styles.forView}>
         <CircleLogo />
 
       <Text style={styles.paragraph}>
@@ -74,11 +72,18 @@ const Signup = () => {
     <SubmitButton handleSubmit={handleSubmit} text={"submit"} loading={loading}/>
      <Text>{JSON.stringify({name,email,password},null,4)}</Text>
         </View>
+        
+        
+      
+        </KeyboardAvoidingView>
+
+        
+      
            
 
-       </ScrollView>
+       
 
-</>
+
 
     )
 
