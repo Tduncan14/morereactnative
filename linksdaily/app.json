@@ -3,6 +3,9 @@
     "name": "linksdaily",
     "slug": "linksdaily",
     "version": "1.0.0",
+    "splash": {
+      "image": "./assets/logo.png"
+    },
     "assetBundlePatterns": [
       "**/*"
     ]
