@@ -71,7 +71,8 @@ const Signup = () => {
 
 
     <SubmitButton handleSubmit={handleSubmit} text={"submit"} loading={loading}/>
-     <Text>{JSON.stringify({name,email,password},null,4)}</Text>
+         
+         <Text style={styles.signIn}> Already Joined?  <Text  style={styles.redText}>Sign In</Text></Text>
         </View>
         
         
@@ -122,7 +123,20 @@ const styles = StyleSheet.create({
         textAlign:'center',
         fontWeight:"400",
         fontSize:24,
+    },
+
+
+    signIn:{
+       
+     textAlign:'center',
+     fontSize:13
+    },
+
+    redText:{
+       color:'#ff2222',
     }
+
+
 })
 
 
