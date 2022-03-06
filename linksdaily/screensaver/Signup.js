@@ -54,6 +54,7 @@ const Signup = () => {
     return(
     
       <KeyboardAvoidingView behavior='height' enableOnAndroid   style= {styles.container}>
+        <ScrollView>
       
 
           <View style={styles.forView}>
@@ -74,9 +75,9 @@ const Signup = () => {
         </View>
         
         
-      
+      </ScrollView>
         </KeyboardAvoidingView>
-
+  
         
       
            
