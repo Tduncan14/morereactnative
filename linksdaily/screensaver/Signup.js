@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {Text,View,StyleSheet,Button, TouchableOpacity} from 'react-native';
+import {Text,View,StyleSheet,Button, TouchableOpacity,ScrollView} from 'react-native';
 import UserInput from '../components/auth/UserInput';
 import SubmitButton from '../components/auth/SubmitButton';
 import Logo from '../components/auth/CircleLogo';
@@ -55,27 +55,28 @@ const Signup = () => {
 
    
       
-        <View style={{flex:1, justifyContent:'center'}}>
+        <ScrollView contentContainerStyle = {styles.container}>
 
-             <CircleLogo />
+        
+        <View style={styles.forView}>
+        <CircleLogo />
 
-            <Text style={styles.paragraph}>
-                Sign Up
-            </Text>
+      <Text style={styles.paragraph}>
+      Sign Up
+      </Text>
 
-            <UserInput text="Name" value={name} setValue={setName} autoCapitalize="words" autoCorrect={false}/>
-            <UserInput text="Email" value={email} setValue={setEmail} autoCompleteType="email"  keyboardType="email-address"/>
-            <UserInput text="Password" value={password} setValue={setPassword} secureTextEntry={true} autoCompleteType="password" />
-
-
+     <UserInput text="Name" value={name} setValue={setName} autoCapitalize="words" autoCorrect={false}/>
+     <UserInput text="Email" value={email} setValue={setEmail} autoCompleteType="email"  keyboardType="email-address"/>
+     <UserInput text="Password" value={password} setValue={setPassword} secureTextEntry={true} autoCompleteType="password" />
 
 
-               <SubmitButton handleSubmit={handleSubmit} text={"submit"} loading={loading}/>
-            <Text>{JSON.stringify({name,email,password},null,4)}</Text>
 
+    <SubmitButton handleSubmit={handleSubmit} text={"submit"} loading={loading}/>
+     <Text>{JSON.stringify({name,email,password},null,4)}</Text>
+        </View>
            
 
-       </View>
+       </ScrollView>
 
 </>
 
@@ -86,7 +87,13 @@ const Signup = () => {
 const styles = StyleSheet.create({
 
     container:{
-        color:'black'
+        color:'black',
+        justifyContent:'center'
+
+    },
+
+    forView:{
+        marginVertical:100
 
     },
 
