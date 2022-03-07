@@ -70,6 +70,11 @@ const Signin = () => {
              <SubmitButton text="sign in" />
 
              <Text style={styles.signUp}> Don't have account? <Text style={styles.colorText}>Sign Up</Text></Text>
+
+
+             <Text style={styles.forgotPassword}> 
+                 Forgot Password
+             </Text>
         </View>
 
         </ScrollView>
@@ -95,6 +100,15 @@ const Signin = () => {
           color:'black',
           marginBottom:39
       },
+
+      forgotPassword:{
+          fontSize:10,
+          textAlign:'center',
+          color:'orange',
+          marginTop:10
+
+      },
+
       textInputs:{
           borderBottomWidth:0.5,
           height:48,
