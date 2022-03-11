@@ -4,7 +4,7 @@
     "slug": "linksdaily",
     "version": "1.0.0",
     "splash": {
-      "image": "./assets/logo.png"
+      "image": "./assets/logo3.png"
     },
     "assetBundlePatterns": [
       "**/*"
