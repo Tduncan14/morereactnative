@@ -8,14 +8,15 @@ import CircleLogo from '../components/auth/CircleLogo';
 // import { KeyboardAwareScrollView ,enableAutomaticScroll} from 'react-native-keyboard-aware-scroll-view'
 
 
-const Signup = () => {
+const Signup = ({navigation}) => {
 
         const [name,setName] = useState('');
         const [email,setEmail] =useState('');
         const [password,setPassword] = useState('');
         const [loading,setLoading] = useState(true);
 
-
+  
+        // console.log(navigation,'this is the navi object')
 
       const handleSubmit = async () => {
 
@@ -72,7 +73,7 @@ const Signup = () => {
 
     <SubmitButton handleSubmit={handleSubmit} text={"submit"} loading={loading}/>
          
-         <Text style={styles.signIn}> Already Joined?  <Text  style={styles.redText}>Sign In</Text></Text>
+         <Text style={styles.signIn}> Already Joined?  <Text  style={styles.redText} onPress={()=>navigation.navigate('Signin')}>Sign In</Text></Text>
         </View>
         
         

@@ -7,7 +7,7 @@ import axios from 'axios';
 
 
 
-const Signin = () => {
+const Signin = ({navigation}) => {
 
 
     const [email,setEmail] = useState('');
@@ -69,7 +69,7 @@ const Signin = () => {
 
              <SubmitButton text="sign in" />
 
-             <Text style={styles.signUp}> Don't have account? <Text style={styles.colorText}>Sign Up</Text></Text>
+             <Text style={styles.signUp}> Don't have account? <Text style={styles.colorText} onPress={() => navigation.navigate('Signup')}>Sign Up</Text></Text>
 
 
              <Text style={styles.forgotPassword}> 
