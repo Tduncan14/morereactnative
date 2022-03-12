@@ -13,7 +13,7 @@ const Signup = ({navigation}) => {
         const [name,setName] = useState('');
         const [email,setEmail] =useState('');
         const [password,setPassword] = useState('');
-        const [loading,setLoading] = useState(true);
+        const [loading,setLoading] = useState(false);
 
   
         // console.log(navigation,'this is the navi object')
@@ -34,8 +34,8 @@ const Signup = ({navigation}) => {
  
         try{
             
-            // const {data} = await axios.post('http://localhost:8000/api/signup',{name,email,password})
-            // console.log('the data has been submitted successfully sign in',data)
+            const {data} = await axios.post('http://10.0.2.2:8000/api/signup',{name,email,password})
+            console.log('the data has been submitted successfully sign in',data)
 
             console.log(name,email,password,"data being passed to the backend")
             alert('Sign up successfull')
