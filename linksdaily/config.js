@@ -1,0 +1,1 @@
+export const API ="https://tender-moose-100.loca.lt";

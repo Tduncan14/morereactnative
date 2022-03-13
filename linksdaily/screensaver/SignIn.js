@@ -4,6 +4,7 @@ import CircleLogo from '../components/auth/CircleLogo';
 import UserInput from '../components/auth/UserInput';
 import SubmitButton from '../components/auth/SubmitButton';
 import axios from 'axios';
+import{API} from '../config'
 
 
 
@@ -14,6 +15,7 @@ const Signin = ({navigation}) => {
     const [password,setPassword] = useState('');
     const [loading,setLoading] = useState(false);
     
+     
 
     const handleSubmit = async () => {
 
@@ -28,17 +30,18 @@ const Signin = ({navigation}) => {
         }
 
         try {
-             // const {data} = await axios.post('http://localhost:8000/api/signin',{email,password})
-            // console.log('the data has been submitted successfully sign in',data)
+             const {data} = await axios.post(`${API}/api/signin`,{email,password})
+            console.log('the data has been submitted successfully sign in',data)
 
             console.log(email,password,"data being passed to the backend")
-            alert('Sign up successfull')
+            alert('Sign in successfull')
             setLoading(false)
         }
 
 
         catch(err){
             console.log(err)
+            alert('User is not found')
             setLoading(false);
 
 
@@ -67,7 +70,7 @@ const Signin = ({navigation}) => {
              <UserInput style={styles.textInputs} text="password" value={password}  setValue={setPassword} secureTextEntry={true} />
 
 
-             <SubmitButton text="sign in" />
+             <SubmitButton handleSubmit={handleSubmit} text="sign in" />
 
              <Text style={styles.signUp}> Don't have account? <Text style={styles.colorText} onPress={() => navigation.navigate('Signup')}>Sign Up</Text></Text>
 
