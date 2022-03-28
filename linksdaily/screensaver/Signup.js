@@ -6,6 +6,7 @@ import Logo from '../components/auth/CircleLogo';
 import axios from 'axios'
 import CircleLogo from '../components/auth/CircleLogo';
 import {API} from '../config';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 // import { KeyboardAwareScrollView ,enableAutomaticScroll} from 'react-native-keyboard-aware-scroll-view'
 
 
@@ -40,6 +41,7 @@ const Signup = ({navigation}) => {
 
             console.log(name,email,password,"data being passed to the backend")
             alert('Sign up successfull')
+            await AsyncStorage.setItem('@auth',JSON.stringify(data))
             setLoading(false)
 
 
@@ -47,7 +49,7 @@ const Signup = ({navigation}) => {
 
         catch(err){
             console.log(err);
-            alert('sign up has failed')
+            alert(`${data.error}`)
             setLoading(false)
         }
       }

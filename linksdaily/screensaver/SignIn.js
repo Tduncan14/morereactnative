@@ -5,7 +5,7 @@ import UserInput from '../components/auth/UserInput';
 import SubmitButton from '../components/auth/SubmitButton';
 import axios from 'axios';
 import{API} from '../config'
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const Signin = ({navigation}) => {
@@ -40,6 +40,12 @@ const Signin = ({navigation}) => {
                 setLoading(false)
             }
            else  {
+            //    save response in async storage
+
+             
+            await AsyncStorage.setItem('@auth', JSON.stringify(data));
+
+
               alert(`sign in successful`)
               setLoading(false)
             }
@@ -62,10 +68,7 @@ const Signin = ({navigation}) => {
     }
 
 
-
-
-
-
+ 
     return(
         <ScrollView>
         <View style={styles.forView}>
