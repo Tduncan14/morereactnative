@@ -1,1 +1,1 @@
-export const API ="https://tender-moose-100.loca.lt";
+export const API ="http://10.0.2.2:8000";

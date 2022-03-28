@@ -34,8 +34,16 @@ const Signin = ({navigation}) => {
             console.log('the data has been submitted successfully sign in',data)
 
             console.log(email,password,"data being passed to the backend")
-            alert('Sign in successfull')
-            setLoading(false)
+            if(data.error){
+                //
+                alert(`password or email doesn't match`)
+                setLoading(false)
+            }
+           else  {
+              alert(`sign in successful`)
+              setLoading(false)
+            }
+            
         }
 
 
