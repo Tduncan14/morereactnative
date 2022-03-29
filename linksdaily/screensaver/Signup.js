@@ -49,7 +49,7 @@ const Signup = ({navigation}) => {
             alert('Sign up successfull')
             await AsyncStorage.setItem('@auth',JSON.stringify(data))
             setLoading(false)
-            setSet(data)
+            setState(data)
 
             navigation.navigate("Signin")
 
