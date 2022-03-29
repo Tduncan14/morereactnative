@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import {Text,View,StyleSheet,Button, TouchableOpacity,ScrollView, KeyboardAvoidingView,} from 'react-native';
 import UserInput from '../components/auth/UserInput';
 import SubmitButton from '../components/auth/SubmitButton';
@@ -7,6 +7,7 @@ import axios from 'axios'
 import CircleLogo from '../components/auth/CircleLogo';
 import {API} from '../config';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AuthContext } from '../context/auth';
 // import { KeyboardAwareScrollView ,enableAutomaticScroll} from 'react-native-keyboard-aware-scroll-view'
 
 
@@ -16,6 +17,9 @@ const Signup = ({navigation}) => {
         const [email,setEmail] =useState('');
         const [password,setPassword] = useState('');
         const [loading,setLoading] = useState(false);
+
+        // context
+        const [state,setState] = useContext(AuthContext);
 
   
         // console.log(navigation,'this is the navi object')

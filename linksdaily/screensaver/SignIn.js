@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useContext} from 'react';
 import {Text,View,StyleSheet,Button,ScrollView} from 'react-native';
 import CircleLogo from '../components/auth/CircleLogo';
 import UserInput from '../components/auth/UserInput';
@@ -6,6 +6,7 @@ import SubmitButton from '../components/auth/SubmitButton';
 import axios from 'axios';
 import{API} from '../config'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AuthContext } from '../context/auth';
 
 
 const Signin = ({navigation}) => {
@@ -15,6 +16,8 @@ const Signin = ({navigation}) => {
     const [password,setPassword] = useState('');
     const [loading,setLoading] = useState(false);
     
+    // context
+    const [state,setState] = useContext(AuthContext)
      
 
     const handleSubmit = async () => {
@@ -40,14 +43,20 @@ const Signin = ({navigation}) => {
                 setLoading(false)
             }
            else  {
-            //    save response in async storage
 
-             
+            // save in the context
+            setState(data)
+            
+
+
+            //    save response in async storage
             await AsyncStorage.setItem('@auth', JSON.stringify(data));
 
 
               alert(`sign in successful`)
               setLoading(false)
+
+              navigation.navigate('Home')
             }
             
         }

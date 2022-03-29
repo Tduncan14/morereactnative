@@ -6,7 +6,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {WebView} from 'react-native-webview';
 import Signup from './screensaver/Signup';
 import Signin from './screensaver/SignIn';
-
+import { AuthProvider } from './context/auth';
+import Home from './screensaver/Home';
 
  const Stack = createNativeStackNavigator();
 
@@ -18,10 +19,13 @@ export default function App() {
   return (
 
     <NavigationContainer>
+      <AuthProvider>
          <Stack.Navigator initialRouteName='Signup' screenOptions={{headerShown:false}}>
             <Stack.Screen name="Signup" component={Signup}/>
             <Stack.Screen name="Signin" component={Signin}/>
+            <Stack.Screen name='Home' component={Home}/>
          </Stack.Navigator>
+         </AuthProvider>
     </NavigationContainer>
   );
 }
