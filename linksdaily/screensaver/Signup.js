@@ -43,11 +43,15 @@ const Signup = ({navigation}) => {
             const {data} = await axios.post(`${API}/api/signup`,{name,email,password})
             console.log('the data has been submitted successfully sign in',data)
 
+            
+
             console.log(name,email,password,"data being passed to the backend")
             alert('Sign up successfull')
             await AsyncStorage.setItem('@auth',JSON.stringify(data))
             setLoading(false)
+            setSet(data)
 
+            navigation.navigate("Signin")
 
         }
 
