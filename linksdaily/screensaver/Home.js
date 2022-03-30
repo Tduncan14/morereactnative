@@ -1,7 +1,9 @@
 import React ,{useContext} from'react';
-import {Text,View,SafeAreaView} from 'react-native';
+import {Text,View,SafeAreaView,TouchableOpacity} from 'react-native';
 import { AuthContext } from '../context/auth';
 import FooterTabs from '../components/nav/Footer';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+
 
 
 

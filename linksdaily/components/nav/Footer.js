@@ -1,10 +1,11 @@
 import React,{useState} from 'react';
 import { TouchableOpacity,View ,Text} from 'react-native';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
 
 
 
-export default function FooterTabs (){
+export default function FooterTabs ({name}){
 
     // 
 
@@ -16,13 +17,12 @@ export default function FooterTabs (){
 
   return (
       <View style={{flexDirection:"row", margin:10,marginHorizontal:30,justifyContent:"space-between"}}>
-          <TouchableOpacity>
-              <>
-               <Text>Home</Text>
-              </>
-          </TouchableOpacity>
+            <Tab name="home" text="Home"/>
+            <Tab name="plus-square" text="Post"/>
+            <Tab name="list-ol" text="Links"/>
+            <Tab name="user" text="Account"/>
 
-          <TouchableOpacity>
+          {/* <TouchableOpacity>
               <>
               <Text>Post</Text>
               </>
@@ -38,8 +38,24 @@ export default function FooterTabs (){
               <>
                <Text>Account</Text>
               </>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
       </View>
   )
 
 }
+
+
+
+
+export const Tab = ({name,text}) => (
+
+
+    <TouchableOpacity>
+    <>
+    <FontAwesome5 name={name} size={25}  style={{marginBottom:3,alignSelf:"center"}}/>
+     <Text>{text}</Text>
+    </>
+</TouchableOpacity>
+
+)
+
