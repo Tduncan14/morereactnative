@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React,{useContext} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
@@ -8,6 +8,7 @@ import Signup from '../../screensaver/Signup';
 import Signin from '../../screensaver/SignIn';
 import { AuthProvider } from '../../context/auth';
 import Home from '../../screensaver/Home';
+import { AuthContext } from '../../context/auth';
 
  const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,13 @@ import Home from '../../screensaver/Home';
 
 
 export default function ScreenNav() {
+
+    const [state,setState] = useContext(AuthContext);
+
+
+    const authenticated = state && state.token !== '' && state.user !== null
+
+    console.log('Auth',authenticated)
 
   return (
 
