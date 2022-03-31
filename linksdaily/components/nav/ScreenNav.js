@@ -9,6 +9,7 @@ import Signin from '../../screensaver/SignIn';
 import { AuthProvider } from '../../context/auth';
 import Home from '../../screensaver/Home';
 import { AuthContext } from '../../context/auth';
+import { HeaderTab } from './HeaderTab';
 
  const Stack = createNativeStackNavigator();
 
@@ -26,10 +27,19 @@ export default function ScreenNav() {
 
   return (
 
-         <Stack.Navigator initialRouteName='Signup' screenOptions={{headerShown:false}}>
-            <Stack.Screen name="Signup" component={Signup}/>
-            <Stack.Screen name="Signin" component={Signin}/>
-            <Stack.Screen name='Home' component={Home}/>
+    // screenOptions={{headerShown:false}}
+
+
+
+         <Stack.Navigator initialRouteName='Signup'> 
+             {authenticated ? <Stack.Screen name="Home" component={Home} options={{title:'InfoAgent',headerRight:() => <HeaderTab />}}/> :
+         <>
+    <Stack.Screen name="Signup" options={{headerShown:false}} component={Signup}/>
+     <Stack.Screen name="Signin" options={{headerShown:false}} component={Signin}/>
+        </>
+             
+             }
+           
          </Stack.Navigator>
 
   );
