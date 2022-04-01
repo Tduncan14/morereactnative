@@ -10,6 +10,9 @@ import { AuthProvider } from '../../context/auth';
 import Home from '../../screensaver/Home';
 import { AuthContext } from '../../context/auth';
 import { HeaderTab } from './HeaderTab';
+import Links from '../../screensaver/Links';
+import Account from '../../screensaver/Account';
+import Post from '../../screensaver/Post';
 
  const Stack = createNativeStackNavigator();
 
@@ -32,7 +35,13 @@ export default function ScreenNav() {
 
 
          <Stack.Navigator initialRouteName='Signup'> 
-             {authenticated ? <Stack.Screen name="Home" component={Home} options={{title:'InfoAgent',headerRight:() => <HeaderTab />}}/> :
+             {authenticated ?
+             <>
+             <Stack.Screen name="Home" component={Home} options={{title:'InfoAgent',headerRightr:() => <HeaderTab />}}/> 
+             <Stack.Screen name="Account" component={Account} options={{headerBackTitle:"Back"}}/>
+             <Stack.Screen name="Links" component={Links} />
+             <Stack.Screen name="Post" component={Post} />
+             </>:
          <>
     <Stack.Screen name="Signup" options={{headerShown:false}} component={Signup}/>
      <Stack.Screen name="Signin" options={{headerShown:false}} component={Signin}/>
