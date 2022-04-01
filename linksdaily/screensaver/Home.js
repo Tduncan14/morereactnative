@@ -18,12 +18,14 @@ const Home = () => {
 
 
     return(
-        <SafeAreaView style={{flex:1,justifyContent:'space-between'}}>
+        <SafeAreaView style={{flex:1}}>
             <Text>
               {JSON.stringify(state,null,4
                 )}
             </Text>
+            <View style={{flex:1, justifyContent:'flex-end'}}>
             <FooterTabs/>
+            </View>
         </SafeAreaView>
     )
 }

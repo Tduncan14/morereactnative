@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import { TouchableOpacity,View ,Text} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import { useNavigation } from '@react-navigation/native';
+import { Divider } from 'react-native-elements';
 
 
 
@@ -19,7 +20,10 @@ export default function FooterTabs ({name}){
 
 
   return (
+      <>
+      <Divider width={1} />
       <View style={{flexDirection:"row", margin:10,marginHorizontal:30,justifyContent:"space-between"}}>
+ 
             <Tab name="home" text="Home" handlePress={() => navigation.navigate('Home')}/>
             <Tab name="plus-square" text="Post" handlePress={() => navigation.navigate('Post')}/>
             <Tab name="list-ol" text="Links" handlePress={() => navigation.navigate('Links')}/>
@@ -43,6 +47,7 @@ export default function FooterTabs ({name}){
               </>
           </TouchableOpacity> */}
       </View>
+      </>
   )
 
 }
