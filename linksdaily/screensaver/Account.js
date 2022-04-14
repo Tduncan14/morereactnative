@@ -104,7 +104,7 @@ const Account = ({navigation}) => {
                 {image && image.url ? (
                     <Image source={{ uri: image.url}}  style={{width:200,height:200,marginVertical:200}}/>
                 ):( <TouchableOpacity onPress={() => handleUpload()}>
-                    <FontAwesome5 name="camera" size={45}/> 
+                    <FontAwesome5 name="camera" size={45} color="orange"/> 
                     </TouchableOpacity>)}
             </CircleLogo>
 

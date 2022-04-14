@@ -12,7 +12,9 @@ const CircleLogo = ({children}) =>{
     return (
 
         <View style={styles.container}>
-         {children ? (children) :(   <Image style={styles.image} source={require('../../assets/logo3.png')} />)}
+         
+         <View style={{backgroundColor:'white',height:190,width:190, borderRadius:100,justifyContent:'center',alignItems:'center'}}>
+             {children ? (children) :(   <Image style={styles.image} source={require('../../assets/logo3.png')} />)}</View>
         </View>
     )
 
@@ -28,6 +30,8 @@ const styles = StyleSheet.create({
     container:{
         justifyContent:'center',
         alignItems:'center',
+        paddingTop:10,
+        paddingBottom:20
 
     },
 
