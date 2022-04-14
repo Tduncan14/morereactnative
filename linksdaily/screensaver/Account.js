@@ -7,14 +7,18 @@ import axios from 'axios';
 import{API} from '../config'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AuthContext } from '../context/auth';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import *  as ImagePicker from 'expo-image-picker';
 
 
 const Account = ({navigation}) => {
 
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
-    const[image,setImage] = useState({});
+     //image 
+     const [uploadImage,setUploadImage] = useState('');
+     const[image,setImage] = useState({url:'https://cdn.pixabay.com/photo/2017/05/09/03/46/alberta-2297204_960_720.jpg',
+     public_id:""});
     const [role,setRole] = useState('')
     const [password,setPassword] = useState('');
     const [loading,setLoading] = useState(false);
@@ -93,7 +97,32 @@ const Account = ({navigation}) => {
     }
 
 
-    const handleUpload = () => {}
+    const handleUpload = async () => {
+        //
+        let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+            permissionResult.canAskAgain = true;
+
+            
+
+           
+
+        console.log(permissionResult)
+
+        if(permissionResult.granted === false){
+            alert('camera access is required,and you have to manually allow access to camera and media');
+          
+     
+            return
+        }
+        // if everything is is good..you get image library
+
+        let pickerResult = await ImagePicker.launchImageLibraryAsync({
+            allowsEditing:true,
+            aspect:[4,3],
+            base64:true
+        })
+
+    }
 
 
  
@@ -102,11 +131,15 @@ const Account = ({navigation}) => {
         <View style={styles.forView}>
             <CircleLogo>
                 {image && image.url ? (
-                    <Image source={{ uri: image.url}}  style={{width:200,height:200,marginVertical:200}}/>
+                    <Image source={{ uri: image.url}}  style={{width:200,height:200,marginVertical:20,borderRadius:100}}/>
                 ):( <TouchableOpacity onPress={() => handleUpload()}>
                     <FontAwesome5 name="camera" size={45} color="orange"/> 
                     </TouchableOpacity>)}
             </CircleLogo>
+
+            {image && image.url ? (
+              <TouchableOpacity onPress={() => handleUpload()} ><FontAwesome5 name="camera" size={20}  color="orange" style={{textAlign:'center', marginTop:5,marginBottom:10}}/></TouchableOpacity>
+            ) : <></>}
 
              <Text style={styles.Text} >{name}</Text>
 
