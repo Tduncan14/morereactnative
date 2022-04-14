@@ -2,7 +2,7 @@ import {View,Image,Text, StyleSheet} from 'react-native';
 import React from 'react';
 
 
-const CircleLogo = () =>{
+const CircleLogo = ({children}) =>{
 
 
 
@@ -12,7 +12,7 @@ const CircleLogo = () =>{
     return (
 
         <View style={styles.container}>
-           <Image style={styles.image} source={require('../../assets/logo3.png')} />
+         {children ? (children) :(   <Image style={styles.image} source={require('../../assets/logo3.png')} />)}
         </View>
     )
 

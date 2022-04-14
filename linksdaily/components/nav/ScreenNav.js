@@ -37,10 +37,10 @@ export default function ScreenNav() {
          <Stack.Navigator initialRouteName='Signup'> 
              {authenticated ?
              <>
-             <Stack.Screen name="Home" component={Home} options={{title:'InfoAgent',headerRightr:() => <HeaderTab />}}/> 
-             <Stack.Screen name="Account" component={Account} options={{headerBackTitle:"Back"}}/>
-             <Stack.Screen name="Links" component={Links} />
-             <Stack.Screen name="Post" component={Post} />
+             <Stack.Screen name="Home" component={Home} options={{title:'InfoAgent', headerTitleAlign: 'center',headerRightr:() => <HeaderTab />}}/> 
+             <Stack.Screen name="Account" component={Account} options={{headerBackTitle:"Back",headerTitleAlign: 'center'}}/>
+             <Stack.Screen name="Links" options={{headerTitleAlign: 'center'}} component={Links} />
+             <Stack.Screen name="Post" options={{headerTitleAlign: 'center'}} component={Post} />
              </>:
          <>
     <Stack.Screen name="Signup" options={{headerShown:false}} component={Signup}/>

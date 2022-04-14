@@ -1,5 +1,5 @@
 import React, {useState,useContext,useEffect} from 'react';
-import {Text,View,StyleSheet,Button,ScrollView} from 'react-native';
+import {Text,View,StyleSheet,Button,ScrollView,Image,TouchableOpacity} from 'react-native';
 import CircleLogo from '../components/auth/CircleLogo';
 import UserInput from '../components/auth/UserInput';
 import SubmitButton from '../components/auth/SubmitButton';
@@ -7,20 +7,21 @@ import axios from 'axios';
 import{API} from '../config'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AuthContext } from '../context/auth';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
 
 const Account = ({navigation}) => {
 
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
-    const[image,setImage] = useState('');
+    const[image,setImage] = useState({});
     const [role,setRole] = useState('')
     const [password,setPassword] = useState('');
     const [loading,setLoading] = useState(false);
     
     // context
     const [state,setState] = useContext(AuthContext)
-
+ 
 
 
      useEffect(() => {
@@ -92,11 +93,20 @@ const Account = ({navigation}) => {
     }
 
 
+    const handleUpload = () => {}
+
+
  
     return(
         <ScrollView>
         <View style={styles.forView}>
-            <CircleLogo />
+            <CircleLogo>
+                {image && image.url ? (
+                    <Image source={{ uri: image.url}}  style={{width:200,height:200,marginVertical:200}}/>
+                ):( <TouchableOpacity onPress={() => handleUpload()}>
+                    <FontAwesome5 name="camera" size={45}/> 
+                    </TouchableOpacity>)}
+            </CircleLogo>
 
              <Text style={styles.Text} >{name}</Text>
 
