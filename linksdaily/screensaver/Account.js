@@ -17,7 +17,7 @@ const Account = ({navigation}) => {
     const [email,setEmail] = useState('');
      //image 
      const [uploadImage,setUploadImage] = useState('');
-     const[image,setImage] = useState({url:'https://cdn.pixabay.com/photo/2017/05/09/03/46/alberta-2297204_960_720.jpg',
+     const[image,setImage] = useState({url:'',
      public_id:""});
     const [role,setRole] = useState('')
     const [password,setPassword] = useState('');
@@ -122,6 +122,18 @@ const Account = ({navigation}) => {
             base64:true
         })
 
+        console.log('pickerResukt ===>',pickerResult)
+        
+
+        if(pickerResult.cancelled === true) {
+              return
+        }
+
+        // save to state for preview
+        let based64Image = `data:image/jpg;base64,${pickerResult.base64}`
+        setUploadImage(based64Image);
+
+        //send to backend as well to upload to cloudinary
     }
 
 
@@ -131,8 +143,14 @@ const Account = ({navigation}) => {
         <View style={styles.forView}>
             <CircleLogo>
                 {image && image.url ? (
-                    <Image source={{ uri: image.url}}  style={{width:200,height:200,marginVertical:20,borderRadius:100}}/>
-                ):( <TouchableOpacity onPress={() => handleUpload()}>
+                    <Image source={{ uri: image.url}} 
+                    style={{width:200,height:200,marginVertical:20,borderRadius:100}}/>
+                    ) : uploadImage ?
+                     (<Image source={{ uri: uploadImage}} 
+                        resizeMode="cover"
+                         style={{width:200,height:200,marginVertical:20,borderRadius:100}}/>)
+
+                      :( <TouchableOpacity onPress={() => handleUpload()}>
                     <FontAwesome5 name="camera" size={45} color="orange"/> 
                     </TouchableOpacity>)}
             </CircleLogo>
