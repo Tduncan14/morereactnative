@@ -11,6 +11,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import *  as ImagePicker from 'expo-image-picker';
 
 
+
 const Account = ({navigation}) => {
 
     const [name,setName] = useState('');
@@ -134,6 +135,14 @@ const Account = ({navigation}) => {
         setUploadImage(based64Image);
 
         //send to backend as well to upload to cloudinary
+
+        const{data} = await axios.post('/upload-image',{
+            image:based64Image
+        })
+
+         console.log(data,'sending response to backend ')
+
+         //update user info in the context and async localStorage
     }
 
 
@@ -146,9 +155,20 @@ const Account = ({navigation}) => {
                     <Image source={{ uri: image.url}} 
                     style={{width:200,height:200,marginVertical:20,borderRadius:100}}/>
                     ) : uploadImage ?
-                     (<Image source={{ uri: uploadImage}} 
+
+                     (
+                         <>
+                             <TouchableOpacity onPress={() => handleUpload()} >
+                     <Image source={{ uri: uploadImage}} 
                         resizeMode="cover"
-                         style={{width:200,height:200,marginVertical:20,borderRadius:100}}/>)
+                         style={{width:200,height:200,marginVertical:20,borderRadius:100}}/>
+
+                
+                  
+                     </TouchableOpacity>
+
+
+                         </>)
 
                       :( <TouchableOpacity onPress={() => handleUpload()}>
                     <FontAwesome5 name="camera" size={45} color="orange"/> 
